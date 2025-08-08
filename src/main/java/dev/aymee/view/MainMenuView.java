@@ -1,3 +1,4 @@
+package dev.aymee.view;
 import java.util.Scanner;
 
 public class MainMenuView {
@@ -18,7 +19,7 @@ public class MainMenuView {
              4. Filtrar los momentos
              5. Salir
 
-             Seleccione una opción: 
+             Por favor seleccione una opción: 
                 """);
                 try {
                     option=Integer.parseInt(scanner.nextLine());
