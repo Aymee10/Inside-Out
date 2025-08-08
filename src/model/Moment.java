@@ -10,8 +10,7 @@ public class Moment {
    private LocalDate createdDate;
    private LocalDate modifiedDate;
 
-    public Moment(int id, String title, String description, Emotion emotion, LocalDate momentDate, LocalDate createdDate,
-        LocalDate modifiedDate) {
+    public Moment(int id, String title, String description, Emotion emotion, LocalDate momentDate) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -69,11 +68,7 @@ public class Moment {
         this.momentDate = momentDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public void setModifiedDate(LocalDate modifiedDate) {
+     public void setModifiedDate(LocalDate modifiedDate) {
         this.modifiedDate = modifiedDate;
     }
 
