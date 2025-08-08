@@ -1,3 +1,5 @@
-public void MessageView (String message) {
+public class MessageView{
+public void messageShow (String message) {
     System.out.println(message);
+}
 }
