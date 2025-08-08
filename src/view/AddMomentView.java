@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 
@@ -38,5 +39,22 @@ public class AddMomentView {
             }
         }
         return emotions[option-1];
+  }
+
+  public LocalDate askDate(){
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    LocalDate date=null;
+
+
+while (date == null) {
+            System.out.print("Ingresa la fecha (dd/mm/yyyy): ");
+            String input = scanner.nextLine();
+            try {
+                date = LocalDate.parse(input, formatter);
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato no válido, intenta de nuevo.");
+            }
+        }
+        return date;
   }
 }
