@@ -1,3 +1,5 @@
+package dev.aymee.model;
+
 public enum Emotion {
     ALEGRIA,
     TRISTEZA,

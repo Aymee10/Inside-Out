@@ -1,5 +1,11 @@
+package dev.aymee.view;
 import java.time.LocalDate;
 import java.util.Scanner;
+import dev.aymee.model.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 
 
 public class AddMomentView {
@@ -21,10 +27,10 @@ public class AddMomentView {
 
   public Emotion  askEmotion(){
      System.out.println("Seleccione una emoción:");
-     Emotion[] emotions=Emotion.values;
+     Emotion[] emotions=Emotion.values();
 
-     for (int i = 0; i < emociones.length; i++) {
-            System.out.println((i + 1) + ". " + emociones[i].name().charAt(0) + emociones[i].name().substring(1).toLowerCase());
+     for (int i = 0; i < emotions.length; i++) {
+            System.out.println((i + 1) + ". " + emotions[i].name().charAt(0) + emotions[i].name().substring(1).toLowerCase());
         }
         int option=-1;
         while (option<0||option>emotions.length) {
