@@ -12,7 +12,10 @@ public class MainMenuView {
         int option;
 
         System.out.println("""
-               Bienvenido a Mi Diario:
+           
+        *******************************************
+               
+            Bienvenido a Mi Diario:
              1. Añadir momento
              2. Ver todos los momentos disponibles
              3. Eliminar un momento
@@ -20,6 +23,9 @@ public class MainMenuView {
              5. Salir
 
              Por favor seleccione una opción: 
+             
+        ******************************************
+
                 """);
                 try {
                     option=Integer.parseInt(scanner.nextLine());

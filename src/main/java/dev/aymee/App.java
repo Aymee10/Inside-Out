@@ -38,8 +38,10 @@ public final class App {
                 }
 
                  case 2 :{
+                    ListMomentsView list=new ListMomentsView();
+                    list.ListMoments(momentController.listMoments()) ;
                     
-                    break;
+                     break;
                 }
                  case 3 :{
                    
