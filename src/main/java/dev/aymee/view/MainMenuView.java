@@ -13,18 +13,18 @@ public class MainMenuView {
 
         System.out.println("""
            
-        *******************************************
-               
-            Bienvenido a Mi Diario:
-             1. Añadir momento
-             2. Ver todos los momentos disponibles
-             3. Eliminar un momento
-             4. Filtrar los momentos
-             5. Salir
-
-             Por favor seleccione una opción: 
-             
-        ******************************************
+        *********************************************
+        * Bienvenido a Mi Diario:                   *
+        *                                           *
+        *    1. Añadir momento                      *
+        *    2. Ver todos los momentos disponibles  *
+        *    3. Eliminar un momento                 *
+        *    4. Filtrar los momentos                *
+        *    5. Salir                               *
+        *                                           *
+        * Por favor seleccione una opción:          *
+        *                                           *
+        *********************************************
 
                 """);
                 try {
