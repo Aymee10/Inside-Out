@@ -31,7 +31,7 @@ public class ListMomentsViewTest {
         List<String> testMoments = Arrays.asList("Momento 1", "Momento 2", "Momento 3");
         ListMomentsView view = new ListMomentsView();
         
-        view.ListMoments(testMoments);
+        view.listMoments(testMoments);
     String ls = System.lineSeparator();
     String expectedOutput = "Lista de momentos vividos:"+ ls +
                             "1. Momento 1" + ls +
@@ -47,7 +47,7 @@ public class ListMomentsViewTest {
         List<String> emptyList = Arrays.asList();
         ListMomentsView view = new ListMomentsView();
         String ls = System.lineSeparator();
-        view.ListMoments(emptyList);
+        view.listMoments(emptyList);
 
         String expectedOutput = "Lista de momentos vividos:" + ls + ls;
 
