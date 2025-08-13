@@ -7,6 +7,9 @@ import java.io.InputStream;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import dev.aymee.model.Emotion;
+
 import java.util.Scanner;
 
 public class AddMomentViewTest {
@@ -27,15 +30,20 @@ public class AddMomentViewTest {
 
     @Test
     public void testAskTitle(){
-        String simulatedInput = "Titulo de prueba\n";
-        InputStream in = new ByteArrayInputStream(simulatedInput.getBytes());
-        Scanner scanner = new Scanner(in);
-
-        AddMomentView view = new AddMomentView(scanner);
+       setSimulatedInput("Titulo de prueba\n");
         String title = view.askTitle();
-        assertEquals("Titulo de prueba", title);
-        scanner.close();
-   
+        assertEquals("Titulo de prueba", title);   
     }
-
+    @Test
+    public void testAskDescription() {
+        setSimulatedInput("Descripcion de prueba\n");
+        String description = view.askDescription();
+        assertEquals("Descripcion de prueba", description);
+    }
+    @Test
+    public void testAskEmotionWithInvalidThenValidInput() {
+        setSimulatedInput("abc\n99\n2\n");
+        Emotion emotion = view.askEmotion();
+        assertEquals(Emotion.TRISTEZA, emotion);
+    }
 }
