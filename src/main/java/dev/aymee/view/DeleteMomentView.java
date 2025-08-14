@@ -6,6 +6,7 @@ public class DeleteMomentView {
      MomentsRepository repository;
 
      public DeleteMomentView() {
+        
      }
 
 }

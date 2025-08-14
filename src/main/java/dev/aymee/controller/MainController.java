@@ -38,7 +38,7 @@ public class MainController {
                 }
                 case 2: {
                     ListMomentsView list = new ListMomentsView();
-                    list.ListMoments(momentController.listMoments());
+                    list.listMoments(momentController.listMoments());
                     break;
                 }
                 case 3: {
