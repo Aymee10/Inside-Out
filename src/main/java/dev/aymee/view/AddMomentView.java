@@ -17,16 +17,19 @@ public class AddMomentView {
   
   public String askTitle(){
     System.out.println("Ingrese el título del momento");
+    System.out.println();
     return scanner.nextLine();
   }
 
    public String askDescription(){
     System.out.println("Ingrese la descripción del momento");
+    System.out.println();
     return scanner.nextLine();
   }
 
   public Emotion  askEmotion(){
      System.out.println("Seleccione una emoción:");
+     System.out.println();
      Emotion[] emotions=Emotion.values();
 
      for (int i = 0; i < emotions.length; i++) {
