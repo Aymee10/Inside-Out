@@ -7,10 +7,13 @@ import dev.aymee.view.AddMomentView;
 import dev.aymee.view.ListMomentsView;
 import dev.aymee.view.MainMenuView;
 import dev.aymee.view.MessageView;
+import dev.aymee.service.MomentService;
+
 
 public class MainController {
 
     private final MomentsRepository repository;
+    private final MomentService momentService;
     private final AddMomentView addMomentView;
     private final MomentController momentController;
     private final MessageView messageView;
@@ -20,8 +23,9 @@ public class MainController {
     public MainController() {
         this.scanner = new Scanner(System.in);
         this.repository = new MomentsRepository();
+        this.momentService= new MomentService(repository);
         this.addMomentView = new AddMomentView(scanner);
-        this.momentController = new MomentController(addMomentView, repository);
+        this.momentController = new MomentController(addMomentView, momentService);
         this.messageView = new MessageView();
         this.mainMenuView = new MainMenuView(scanner);
     }
