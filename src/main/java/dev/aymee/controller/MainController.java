@@ -54,7 +54,7 @@ public class MainController {
                     break;
                 }
                 case 5: {
-                    messageView.messageShow("Hasta luego");
+                    messageView.messageShow("Hasta la próxima!!!");
                     clicExit = true;
                     break;
                 }
