@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import dev.aymee.repository.MomentsRepository;
 import dev.aymee.view.AddMomentView;
+import dev.aymee.view.DeleteMomentView;
 import dev.aymee.view.ListMomentsView;
 import dev.aymee.view.MainMenuView;
 import dev.aymee.view.MessageView;
@@ -19,6 +20,7 @@ public class MainController {
     private final MessageView messageView;
     private final MainMenuView mainMenuView;
     private final Scanner scanner;
+    private final DeleteMomentView deleteMomentView;
 
     public MainController() {
         this.scanner = new Scanner(System.in);
@@ -28,6 +30,7 @@ public class MainController {
         this.momentController = new MomentController(addMomentView, momentService);
         this.messageView = new MessageView();
         this.mainMenuView = new MainMenuView(scanner);
+        this.deleteMomentView=new DeleteMomentView(scanner);
     }
 
     public void start() {
@@ -46,7 +49,8 @@ public class MainController {
                     break;
                 }
                 case 3: {
-                    // Lógica para la opción 3
+                    String result = momentController.deleteMoment();
+                    messageView.messageShow(result);
                     break;
                 }
                 case 4: {

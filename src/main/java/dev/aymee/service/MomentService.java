@@ -49,6 +49,9 @@ public class MomentService {
                 })
                 .collect(Collectors.toList());
     }
+    public String deleteMoment(int opcion){
+        return ("a");
+    }
 }
 
 
