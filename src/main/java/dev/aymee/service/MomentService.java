@@ -11,13 +11,15 @@ import dev.aymee.repository.MomentsRepository;
 
 public class MomentService {
     private MomentsRepository repository;
+    private int  id;
 
     public MomentService(MomentsRepository repository) {
         this.repository = repository;
+        this.id=0;
     }
 
     public void addMoment(AddMomentDTO dto) {
-        int id = repository.findAll().size() + 1;
+         id ++;
 
         Moment moment = new Moment(
             id,
