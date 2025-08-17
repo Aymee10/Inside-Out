@@ -44,7 +44,7 @@ public class MomentService {
                             moment.getEmotion().name().charAt(0) +
                             moment.getEmotion().name().substring(1).toLowerCase();
 
-                    return "Ocurrió el: " + moment.getMomentDate().format(formatter)
+                    return moment.getId()+"-"+"Ocurrió el: " + moment.getMomentDate().format(formatter)
                             + ". Título: " + moment.getTitle()
                             + ". Descripción: " + moment.getDescription()
                             + ". Emoción: " + emotionFormatted;
@@ -53,14 +53,12 @@ public class MomentService {
     }
     public String deleteMoment(int opcion){
        
-      String result="El identificador proporcionado no existe en la lista";
-       if(opcion<=repository.findAll().size()){
-        boolean deleted=repository.deleteMoment(opcion);
-        if (deleted) {
-          result="Momento vivido eliminado correctamente";  
-        }    
-       }
-      return result;
+    boolean deleted = repository.deleteMoment(id);
+    if (deleted) {
+        return "Momento vivido eliminado correctamente";
+    } else {
+        return "El identificador proporcionado no existe en la lista";
+    }
     }
 }
 
