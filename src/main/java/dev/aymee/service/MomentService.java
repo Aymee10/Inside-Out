@@ -50,8 +50,9 @@ public class MomentService {
                 .collect(Collectors.toList());
     }
     public String deleteMoment(int opcion){
+       
       String result="El identificador proporcionado no existe en la lista";
-       if(opcion>0 && opcion<repository.findAll().size()){
+       if(opcion<=repository.findAll().size()){
         boolean deleted=repository.deleteMoment(opcion);
         if (deleted) {
           result="Momento vivido eliminado correctamente";  

@@ -19,11 +19,11 @@ public class DeleteMomentView {
          String id= scanner.nextLine();
         try{
           result=Integer.parseInt(id);
-         
+         System.out.println(result);
         }
         catch(NumberFormatException e){
           System.out.println("Solo números positivos, intente de nuevo");
-          
+          System.out.println(result);
          
         }}
         return result;
