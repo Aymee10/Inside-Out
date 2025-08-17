@@ -2,7 +2,6 @@ package dev.aymee.view;
 
 import java.util.Scanner;
 
-import dev.aymee.repository.MomentsRepository;
 
 public class DeleteMomentView {
      Scanner scanner;
@@ -12,18 +11,19 @@ public class DeleteMomentView {
      }
 
       public int delete(){
-        System.out.println("Ingresa el identificador del momento:");
-        System.out.println();
-        String id= scanner.nextLine();
-        int result=0;
-       while (result<=0) {
-         
+        
+        int result=-1;
+       while (result<0) {
+         System.out.println("Ingresa el identificador del momento:");
+         System.out.println();
+         String id= scanner.nextLine();
         try{
-          result=Integer.valueOf(id);
+          result=Integer.parseInt(id);
          
         }
-        catch(ExceptionInInitializerError e){
+        catch(NumberFormatException e){
           System.out.println("Solo números positivos, intente de nuevo");
+          
          
         }}
         return result;
