@@ -53,7 +53,7 @@ public class MomentService {
     }
     public String deleteMoment(int opcion){
        
-    boolean deleted = repository.deleteMoment(id);
+    boolean deleted = repository.deleteMoment(opcion);
     if (deleted) {
         return "Momento vivido eliminado correctamente";
     } else {
