@@ -16,16 +16,7 @@ public class MomentsRepository {
     }
 
     public boolean deleteMoment(int id){
-       boolean deleted=false;
        
-       Iterator <Moment> iterator=momentList.iterator();
-       while (iterator.hasNext()) {
-        Moment m=iterator.next();
-        if (m.getId()==id){
-            iterator.remove();
-            deleted=true;
-        }
-       }
-        return deleted;
+        return momentList.removeIf(m -> m.getId() == id);
     }
 }
