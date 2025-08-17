@@ -2,6 +2,7 @@ package dev.aymee.controller;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import java.time.LocalDate;
+import java.util.Arrays;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,9 +11,12 @@ import dev.aymee.dto.AddMomentDTO;
 import dev.aymee.model.Emotion;
 import dev.aymee.service.MomentService;
 import dev.aymee.view.AddMomentView;
+
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasSize;
 
 public class MomentControllerTest {
    private AddMomentView addMomentView;
@@ -54,5 +58,11 @@ public class MomentControllerTest {
 
         assertThat(result, containsString("Error al añadir el momento: Fallo"));
     }
-
+@Test
+void listMomentsTest(){
+    when(momentService.listMoments()).thenReturn(Arrays.asList( "Ocurrió el: 20/05/2023. Título: Viaje. Descripción: Un viaje inolvidable. Emoción: Alegria"));
+    var result=controller.listMoments();
+    assertThat(result, hasSize(1));
+    assertThat(result.get(0), containsString("Un viaje inolvidable"));
+}
 }
