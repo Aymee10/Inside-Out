@@ -26,9 +26,7 @@ public class MomentService {
             dto.getEmotion(),
             dto.getMomentDate()
         );
-
-        
-        moment.setMomentDate(LocalDate.now());
+      
         moment.setModifiedDate(LocalDate.now());
 
         repository.addMoment(moment);
