@@ -11,6 +11,8 @@ import dev.aymee.dto.AddMomentDTO;
 import dev.aymee.model.Emotion;
 import dev.aymee.service.MomentService;
 import dev.aymee.view.AddMomentView;
+import dev.aymee.view.DeleteMomentView;
+import dev.aymee.view.FilterMomentsListView;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -21,13 +23,17 @@ import static org.hamcrest.Matchers.hasSize;
 public class MomentControllerTest {
    private AddMomentView addMomentView;
    private MomentService momentService;
-   private MomentController controller= new MomentController(addMomentView, momentService);
+   DeleteMomentView delete;
+   FilterMomentsListView filter;
+   private MomentController controller= new MomentController(addMomentView, momentService,delete,filter);
     
   @BeforeEach
     void setUp() {
         addMomentView = mock(AddMomentView.class);
         momentService = mock(MomentService.class);
-        controller = new MomentController(addMomentView, momentService);
+        delete=mock(DeleteMomentView.class);
+        filter=mock(FilterMomentsListView.class);
+        controller = new MomentController(addMomentView, momentService,delete,filter);
     }
      @Test
     void addMoment_SuccessMessage() {

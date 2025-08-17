@@ -13,7 +13,7 @@ public class DeleteMomentView {
       public int delete(){
         
         int result=-1;
-       while (result<0) {
+       while (result<=0) {
          System.out.println("Ingresa el identificador del momento:");
          System.out.println();
          String id= scanner.nextLine();
