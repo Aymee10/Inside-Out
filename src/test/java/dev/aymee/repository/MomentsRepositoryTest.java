@@ -71,7 +71,6 @@ public class MomentsRepositoryTest {
          assertThat(repository.findAll().size(), is(2));
 
 
-
     }
 
 }
