@@ -32,7 +32,7 @@ public class MomenteServiceTest {
      service.addMoment(dto);
      var result = service.listMoments();
       assertThat(result.size(), is(1));
-      String expected = "Ocurrió el: 10/10/2020. Título: Paseo. Descripción: Un dia de paseo. Emoción: Ira";
+      String expected = "1-Ocurrió el: 10/10/2020. Título: Paseo. Descripción: Un dia de paseo. Emoción: Ira";
       assertThat(result.get(0), is(expected));
     }
 }

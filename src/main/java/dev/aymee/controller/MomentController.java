@@ -8,10 +8,15 @@ public class MomentController {
    
     private AddMomentView addMomentView;
     private MomentService momentService;
+    private DeleteMomentView deleteView;
+    private FilterMomentsListView filterView;
 
-    public MomentController(AddMomentView addMomentView, MomentService momentService) {
+    public MomentController(AddMomentView addMomentView, MomentService momentService, DeleteMomentView deleteMomentView, FilterMomentsListView filterView) {
         this.addMomentView = addMomentView;
         this.momentService = momentService;
+        this.deleteView=deleteMomentView;
+        this.filterView= filterView;
+      
     }
 
     public String addMoment(){
@@ -33,5 +38,13 @@ public class MomentController {
     public List<String> listMoments() {
         return momentService.listMoments();
     }
-}
+
+    public String deleteMoment(){
+       int opcion=deleteView.delete();
+       
+       return momentService.deleteMoment(opcion);
+      
+       }
+    }
+
  

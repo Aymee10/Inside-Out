@@ -11,13 +11,15 @@ import dev.aymee.repository.MomentsRepository;
 
 public class MomentService {
     private MomentsRepository repository;
+    private int  id;
 
     public MomentService(MomentsRepository repository) {
         this.repository = repository;
+        this.id=0;
     }
 
     public void addMoment(AddMomentDTO dto) {
-        int id = repository.findAll().size() + 1;
+         id ++;
 
         Moment moment = new Moment(
             id,
@@ -42,12 +44,21 @@ public class MomentService {
                             moment.getEmotion().name().charAt(0) +
                             moment.getEmotion().name().substring(1).toLowerCase();
 
-                    return "Ocurrió el: " + moment.getMomentDate().format(formatter)
+                    return moment.getId()+"-"+"Ocurrió el: " + moment.getMomentDate().format(formatter)
                             + ". Título: " + moment.getTitle()
                             + ". Descripción: " + moment.getDescription()
                             + ". Emoción: " + emotionFormatted;
                 })
                 .collect(Collectors.toList());
+    }
+    public String deleteMoment(int opcion){
+       
+    boolean deleted = repository.deleteMoment(opcion);
+    if (deleted) {
+        return "Momento vivido eliminado correctamente";
+    } else {
+        return "El identificador proporcionado no existe en la lista";
+    }
     }
 }
 
