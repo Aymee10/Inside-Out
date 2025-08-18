@@ -28,7 +28,7 @@ public class FilterMomentsListView {
         }
         while (option<1||option>2);
 
-         return option;
+        return option;
     }
 
 }
