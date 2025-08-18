@@ -49,7 +49,7 @@ public class ListMomentsViewTest {
         String ls = System.lineSeparator();
         view.listMoments(emptyList);
 
-        String expectedOutput = "Lista de momentos vividos:" + ls + ls;
+        String expectedOutput = "No existen momentos para mostrar, añada momentos vividos en la opción 1" + ls;
 
         assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
