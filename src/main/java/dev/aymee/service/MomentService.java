@@ -6,12 +6,14 @@ import java.util.stream.Collectors;
 import java.util.List;
 
 import dev.aymee.dto.AddMomentDTO;
+import dev.aymee.model.Emotion;
 import dev.aymee.model.Moment;
 import dev.aymee.repository.MomentsRepository;
 
 public class MomentService {
     private MomentsRepository repository;
     private int  id;
+     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
     public MomentService(MomentsRepository repository) {
         this.repository = repository;
@@ -33,22 +35,21 @@ public class MomentService {
 
         repository.addMoment(moment);
     }
+private String formatMoment(Moment moment) {
+        String emotionFormatted =
+                moment.getEmotion().name().charAt(0) +
+                moment.getEmotion().name().substring(1).toLowerCase();
 
+        return moment.getId() + "-" +
+                "Ocurrió el: " + moment.getMomentDate().format(formatter) +
+                ". Título: " + moment.getTitle() +
+                ". Descripción: " + moment.getDescription() +
+                ". Emoción: " + emotionFormatted;
+    }
     public List<String> listMoments() {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-
         return repository.findAll()
                 .stream()
-                .map(moment -> {
-                    String emotionFormatted =
-                            moment.getEmotion().name().charAt(0) +
-                            moment.getEmotion().name().substring(1).toLowerCase();
-
-                    return moment.getId()+"-"+"Ocurrió el: " + moment.getMomentDate().format(formatter)
-                            + ". Título: " + moment.getTitle()
-                            + ". Descripción: " + moment.getDescription()
-                            + ". Emoción: " + emotionFormatted;
-                })
+                .map(this::formatMoment) 
                 .collect(Collectors.toList());
     }
     public String deleteMoment(int opcion){
@@ -60,6 +61,21 @@ public class MomentService {
         return "El identificador proporcionado no existe en la lista";
     }
     }
+
+    public List<String> filterByEmotion(Emotion emotion){
+       return repository.filterByEmotion(emotion)
+                .stream()
+                .map(this::formatMoment) 
+                .collect(Collectors.toList());
+
+    }
+     public List<String> filterByDate(LocalDate date){
+         return repository.filterByDate(date)
+                .stream()
+                .map(this::formatMoment) 
+                .collect(Collectors.toList());
+    }
+
 }
 
 
