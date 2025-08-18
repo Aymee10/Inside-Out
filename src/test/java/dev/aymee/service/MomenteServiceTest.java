@@ -16,27 +16,38 @@ import dev.aymee.repository.MomentsRepository;
 
 public class MomenteServiceTest {
 
-    MomentsRepository repo=new MomentsRepository();
-    AddMomentDTO dto=new AddMomentDTO("Paseo", "Un dia de paseo", Emotion.IRA, LocalDate.of(2020, 10, 10));
-    MomentService service = new MomentService(repo);
+ private MomentsRepository repo;
+    private MomentService service;
+    private AddMomentDTO dto;
 
-   @Test
-   void addMomentTest(){
-       service.addMoment(dto);
-       assertThat(repo.findAll().size(), is(1));
-       assertThat(repo.findAll().get(0).getTitle(), is("Paseo"));
-       assertThat(repo.findAll().get(0).getDescription(), is("Un dia de paseo"));
-       assertThat(repo.findAll().get(0).getModifiedDate(),is(LocalDate.now()));
-
-   }
-    @Test
-    void listMomentsTest(){
-     service.addMoment(dto);
-     var result = service.listMoments();
-      assertThat(result.size(), is(1));
-      String expected = "1-Ocurrió el: 10/10/2020. Título: Paseo. Descripción: Un dia de paseo. Emoción: Ira";
-      assertThat(result.get(0), is(expected));
+    @BeforeEach
+    void setUp() {
+        repo = new MomentsRepository();
+        service = new MomentService(repo);
+        dto = new AddMomentDTO("Paseo", "Un dia de paseo", Emotion.IRA, LocalDate.of(2020, 10, 10));
     }
+
+    @Test
+    void addMomentTest() {
+        service.addMoment(dto);
+
+        assertThat(repo.findAll().size(), is(1));
+        assertThat(repo.findAll().get(0).getTitle(), is("Paseo"));
+        assertThat(repo.findAll().get(0).getDescription(), is("Un dia de paseo"));
+        assertThat(repo.findAll().get(0).getModifiedDate(), is(LocalDate.now()));
+    }
+
+    @Test
+    void listMomentsTest() {
+        service.addMoment(dto);
+
+        var result = service.listMoments();
+
+        assertThat(result.size(), is(1));
+        String expected = "1-Ocurrió el: 10/10/2020. Título: Paseo. Descripción: Un dia de paseo. Emoción: Ira";
+        assertThat(result.get(0), is(expected));
+    }
+
     @Test
     void deleteMoment_Success() {
         service.addMoment(dto);
@@ -46,9 +57,10 @@ public class MomenteServiceTest {
         assertThat(result, is("Momento vivido eliminado correctamente"));
         assertThat(repo.findAll().size(), is(0));
     }
+
     @Test
     void filterByEmotionTest() {
-        service.addMoment(dto); 
+        service.addMoment(dto);
         AddMomentDTO dto2 = new AddMomentDTO("Viaje", "Un viaje feliz", Emotion.ALEGRIA, LocalDate.of(2021, 5, 20));
         service.addMoment(dto2);
 
@@ -61,7 +73,7 @@ public class MomenteServiceTest {
 
     @Test
     void filterByDateTest() {
-        service.addMoment(dto); 
+        service.addMoment(dto);
         AddMomentDTO dto2 = new AddMomentDTO("Estudio", "Día de estudios", Emotion.ANSIEDAD, LocalDate.of(2022, 1, 1));
         service.addMoment(dto2);
 
