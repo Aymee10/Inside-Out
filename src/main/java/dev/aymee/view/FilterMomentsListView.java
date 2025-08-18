@@ -21,6 +21,8 @@ public class FilterMomentsListView {
       String input = scanner.nextLine();
       try{
         option=Integer.parseInt(input);
+        if (option < 1 || option > 2) {
+                System.out.println("Opción inválida. Solo puede ingresar 1 o 2.");}
       }
       catch(Exception e){
         System.out.println("Solo puede insertar números 1 o 2");
