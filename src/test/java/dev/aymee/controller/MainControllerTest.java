@@ -66,4 +66,5 @@ public class MainControllerTest {
         assertTrue(output.contains("1. Añadir momento"));
         assertTrue(output.contains("Ingrese la descripción del momento"));
     }
+    
 }

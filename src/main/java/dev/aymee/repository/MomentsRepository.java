@@ -1,4 +1,5 @@
 package dev.aymee.repository;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -19,4 +20,17 @@ public class MomentsRepository {
        
         return momentList.removeIf(m -> m.getId() == id);
     }
+    
+    public List<Moment> filterByEmotion(Emotion emotion) {
+    return momentList.stream()
+            .filter(m -> m.getEmotion() == emotion)
+            .toList(); 
+}
+
+public List<Moment> filterByDate(LocalDate date) {
+    return momentList.stream()
+            .filter(m -> m.getMomentDate().equals(date))
+            .toList();
+}
+
 }

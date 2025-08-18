@@ -5,6 +5,8 @@ import java.util.Scanner;
 import dev.aymee.repository.MomentsRepository;
 import dev.aymee.view.AddMomentView;
 import dev.aymee.view.DeleteMomentView;
+import dev.aymee.view.FilerByEmotionView;
+import dev.aymee.view.FilterByDateView;
 import dev.aymee.view.FilterMomentsListView;
 import dev.aymee.view.ListMomentsView;
 import dev.aymee.view.MainMenuView;
@@ -23,6 +25,8 @@ public class MainController {
     private final Scanner scanner;
     private final DeleteMomentView deleteMomentView;
     private final FilterMomentsListView filterView;
+    private final FilerByEmotionView filterEmotion;
+    private final FilterByDateView filterDate;
 
     public MainController() {
         this.scanner = new Scanner(System.in);
@@ -33,7 +37,10 @@ public class MainController {
         this.mainMenuView = new MainMenuView(scanner);
         this.deleteMomentView=new DeleteMomentView(scanner);
         this.filterView=new FilterMomentsListView(scanner);
-         this.momentController = new MomentController(addMomentView, momentService,deleteMomentView,filterView);
+        this.filterDate=new FilterByDateView(scanner);
+        this.filterEmotion=new FilerByEmotionView(scanner);
+         this.momentController = new MomentController(addMomentView, momentService,deleteMomentView,filterView, filterEmotion, filterDate);
+
     }
 
     public void start() {
@@ -57,7 +64,8 @@ public class MainController {
                     break;
                 }
                 case 4: {
-                    // Lógica para la opción 4
+                    ListMomentsView list = new ListMomentsView();
+                    list.listMoments(momentController.filterMoments());
                     break;
                 }
                 case 5: {
