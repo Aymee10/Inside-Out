@@ -34,9 +34,9 @@ public class ListMomentsViewTest {
         view.listMoments(testMoments);
     String ls = System.lineSeparator();
     String expectedOutput = "Lista de momentos vividos:"+ ls +
-                            "1. Momento 1" + ls +
-                            "2. Momento 2" + ls +
-                            "3. Momento 3" + ls +
+                            "Momento 1" + ls +
+                            "Momento 2" + ls +
+                            "Momento 3" + ls +
                             ls;
 
     assertEquals(expectedOutput, outputStreamCaptor.toString());
