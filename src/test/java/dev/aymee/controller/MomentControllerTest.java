@@ -66,9 +66,16 @@ public class MomentControllerTest {
     }
 @Test
 void listMomentsTest(){
-    when(momentService.listMoments()).thenReturn(Arrays.asList( "Ocurrió el: 20/05/2023. Título: Viaje. Descripción: Un viaje inolvidable. Emoción: Alegria"));
+    when(momentService.listMoments()).thenReturn(Arrays.asList( "1-Ocurrió el: 20/05/2023. Título: Viaje. Descripción: Un viaje inolvidable. Emoción: Alegria"));
     var result=controller.listMoments();
     assertThat(result, hasSize(1));
     assertThat(result.get(0), containsString("Un viaje inolvidable"));
+}
+@Test
+void deleteMomentTest(){
+    when(delete.delete()).thenReturn(1);
+    when(momentService.deleteMoment(1)).thenReturn("Momento vivido eliminado correctamente");
+    var result=controller.deleteMoment();
+    assertThat(result, is("Momento vivido eliminado correctamente"));
 }
 }
