@@ -25,7 +25,7 @@ public int delete() {
             }
 
         } catch (NumberFormatException e) {
-            System.out.println("Solo números positivos, intente de nuevo");
+            System.out.println("Solo números enteros positivos, intente de nuevo");
         }
 
     } while (result <= 0);
