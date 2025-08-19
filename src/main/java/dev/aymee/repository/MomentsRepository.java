@@ -31,5 +31,10 @@ public List<Moment> filterByDate(LocalDate date) {
             .filter(m -> m.getMomentDate().equals(date))
             .toList();
 }
+public List<Moment> filterByCategory(boolean category){
+    return momentList.stream()
+            .filter(m -> m.isGood()==category)
+            .toList();
+}
 
 }

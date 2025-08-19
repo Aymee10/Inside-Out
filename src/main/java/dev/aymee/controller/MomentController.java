@@ -13,16 +13,19 @@ public class MomentController {
     private MomentService momentService;
     private DeleteMomentView deleteView;
     private FilterMomentsListView filterView;
-    private FilerByEmotionView filteByEmotionView;
+    private FilterByEmotionView filteByEmotionView;
     private FilterByDateView filterByDateView;
+    private FilterByCategoryView filterByCategoryView;
 
-    public MomentController(AddMomentView addMomentView, MomentService momentService, DeleteMomentView deleteMomentView, FilterMomentsListView filterView, FilerByEmotionView filterEmotionView, FilterByDateView filterDateView) {
+    public MomentController(AddMomentView addMomentView, MomentService momentService, DeleteMomentView deleteMomentView, FilterMomentsListView filterView, FilterByEmotionView filterEmotionView, FilterByDateView filterDateView, FilterByCategoryView filterByCategoryView) {
         this.addMomentView = addMomentView;
         this.momentService = momentService;
         this.deleteView=deleteMomentView;
         this.filterView= filterView;
         this.filteByEmotionView=filterEmotionView;
         this.filterByDateView=filterDateView;
+        this.filterByCategoryView=filterByCategoryView;
+
       
     }
 
@@ -64,7 +67,11 @@ public class MomentController {
               case 2:{
                 LocalDate selectedlDate= filterByDateView.filterDate();
                 return  momentService.filterByDate(selectedlDate);
-        }           
+        }   
+        case 3:{
+          boolean category=filterByCategoryView.filterCategory();   
+          return momentService.filterByCategory(category); 
+        }  
             default:
                 return List.of("Opción no válida");
         }

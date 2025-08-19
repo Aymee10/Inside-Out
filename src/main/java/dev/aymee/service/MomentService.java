@@ -84,6 +84,12 @@ private String formatMoment(Moment moment) {
                 .map(this::formatMoment) 
                 .collect(Collectors.toList());
     }
+    public List<String> filterByCategory(boolean category){
+         return repository.filterByCategory(category)
+                .stream()
+                .map(this::formatMoment) 
+                .collect(Collectors.toList());
+    }
 
 }
 
