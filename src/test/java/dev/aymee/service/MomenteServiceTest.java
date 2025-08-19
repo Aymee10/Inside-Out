@@ -24,7 +24,7 @@ public class MomenteServiceTest {
     void setUp() {
         repo = new MomentsRepository();
         service = new MomentService(repo);
-        dto = new AddMomentDTO("Paseo", "Un dia de paseo", Emotion.IRA, LocalDate.of(2020, 10, 10));
+        dto = new AddMomentDTO("Paseo", "Un dia de paseo", Emotion.IRA, LocalDate.of(2020, 10, 10),true);
     }
 
     @Test
@@ -61,7 +61,7 @@ public class MomenteServiceTest {
     @Test
     void filterByEmotionTest() {
         service.addMoment(dto);
-        AddMomentDTO dto2 = new AddMomentDTO("Viaje", "Un viaje feliz", Emotion.ALEGRIA, LocalDate.of(2021, 5, 20));
+        AddMomentDTO dto2 = new AddMomentDTO("Viaje", "Un viaje feliz", Emotion.ALEGRIA, LocalDate.of(2021, 5, 20),true);
         service.addMoment(dto2);
 
         var result = service.filterByEmotion(Emotion.ALEGRIA);
@@ -74,7 +74,7 @@ public class MomenteServiceTest {
     @Test
     void filterByDateTest() {
         service.addMoment(dto);
-        AddMomentDTO dto2 = new AddMomentDTO("Estudio", "Día de estudios", Emotion.ANSIEDAD, LocalDate.of(2022, 1, 1));
+        AddMomentDTO dto2 = new AddMomentDTO("Estudio", "Día de estudios", Emotion.ANSIEDAD, LocalDate.of(2022, 1, 1),true);
         service.addMoment(dto2);
 
         var result = service.filterByDate(LocalDate.of(2020, 10, 10));

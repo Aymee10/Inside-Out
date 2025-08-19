@@ -28,7 +28,8 @@ public class MomentService {
             dto.getTitle(),
             dto.getDescription(),
             dto.getEmotion(),
-            dto.getMomentDate()
+            dto.getMomentDate(),
+            dto.getIsGood()
         );
       
         moment.setModifiedDate(LocalDate.now());
@@ -39,12 +40,20 @@ private String formatMoment(Moment moment) {
         String emotionFormatted =
                 moment.getEmotion().name().charAt(0) +
                 moment.getEmotion().name().substring(1).toLowerCase();
+        String category;
+        if(moment.isGood()){
+            category="Bueno";
+        }    else{
+            category="Malo";
+        }    
 
         return moment.getId() + "-" +
                 "Ocurrió el: " + moment.getMomentDate().format(formatter) +
                 ". Título: " + moment.getTitle() +
                 ". Descripción: " + moment.getDescription() +
-                ". Emoción: " + emotionFormatted;
+                ". Emoción: " + emotionFormatted +
+                ". Categoría: "+ category;
+
     }
     public List<String> listMoments() {
         return repository.findAll()

@@ -32,7 +32,8 @@ public class MomentController {
                 addMomentView.askTitle(),
                 addMomentView.askDescription(),
                 addMomentView.askEmotion(),
-                addMomentView.askDate()
+                addMomentView.askDate(),
+                addMomentView.askIfIsGood()
             );
         momentService.addMoment(dto);    
         return "Momento añadido correctamente";
