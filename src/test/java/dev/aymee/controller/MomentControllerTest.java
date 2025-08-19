@@ -12,6 +12,7 @@ import dev.aymee.model.Emotion;
 import dev.aymee.service.MomentService;
 import dev.aymee.view.AddMomentView;
 import dev.aymee.view.DeleteMomentView;
+import dev.aymee.view.FilterByCategoryView;
 import dev.aymee.view.FilterByEmotionView;
 import dev.aymee.view.FilterByDateView;
 import dev.aymee.view.FilterMomentsListView;
@@ -29,7 +30,8 @@ public class MomentControllerTest {
    private FilterMomentsListView filter;
    private FilterByDateView filterByDateView;
    private FilterByEmotionView filterByEmotionView;
-   private MomentController controller= new MomentController(addMomentView, momentService,delete,filter,filterByEmotionView,filterByDateView);
+   private FilterByCategoryView filterByCategoryView;
+   private MomentController controller= new MomentController(addMomentView, momentService,delete,filter,filterByEmotionView,filterByDateView, filterByCategoryView);
     
   @BeforeEach
     void setUp() {
@@ -37,6 +39,8 @@ public class MomentControllerTest {
         momentService = mock(MomentService.class);
         delete=mock(DeleteMomentView.class);
         filter=mock(FilterMomentsListView.class);
+     
+
         controller = new MomentController(addMomentView, momentService,delete,filter, filterByEmotionView,filterByDateView);
     }
      @Test
