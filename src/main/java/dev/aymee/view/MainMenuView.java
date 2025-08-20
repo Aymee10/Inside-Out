@@ -20,7 +20,8 @@ public class MainMenuView {
         *    2. Ver todos los momentos disponibles  *
         *    3. Eliminar un momento                 *
         *    4. Filtrar los momentos                *
-        *    5. Salir                               *
+        *    5. Guardar momentos en archivo CSV     *
+        *    6. Salir                               *
         *                                           *
         * Por favor seleccione una opción:          *
         *                                           *

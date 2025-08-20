@@ -39,7 +39,7 @@ public class MainControllerTest {
         mainController.start();
         String output = outContent.toString();
         assertTrue(output.contains("1. Añadir momento"));
-        assertTrue(output.contains("5. Salir"));
+        assertTrue(output.contains("6. Salir"));
         assertTrue(output.contains("Hasta la próxima!!!"));
 
     }
