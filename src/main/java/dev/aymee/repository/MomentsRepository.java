@@ -23,26 +23,6 @@ public class MomentsRepository implements Repository<Moment> {
         return momentList.removeIf(m -> m.getId() == id);
     }
     
-   
-    public List<Moment> filterByEmotion(Emotion emotion) {
-    return momentList.stream()
-            .filter(m -> m.getEmotion() == emotion)
-            .toList(); 
-}
-
-
-public List<Moment> filterByDate(LocalDate date) {
-    return momentList.stream()
-            .filter(m -> m.getMomentDate().equals(date))
-            .toList();
-}
-
-public List<Moment> filterByCategory(boolean category){
-    return momentList.stream()
-            .filter(m -> m.isGood()==category)
-            .toList();
-}
-
 @Override
 public void saveCSV(List<Moment> list) {
     // TODO Auto-generated method stub
