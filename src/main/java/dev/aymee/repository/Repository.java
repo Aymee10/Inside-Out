@@ -6,5 +6,5 @@ public interface Repository<T> {
     void add(T entity);
     List<T> findAll();
     boolean delete(int id);
-    String saveCSV(List<T> list);
+    String saveCSV();
 }

@@ -26,7 +26,7 @@ public class MomentsRepository implements Repository<Moment> {
     }
     
 @Override
-public String saveCSV(List<Moment> list) {
+public String saveCSV() {
     String folder="data";
     String file=folder + "/moments.csv";
 
@@ -37,18 +37,18 @@ public String saveCSV(List<Moment> list) {
     
     try(FileWriter writer=new FileWriter(file)){
         writer.write("id,title,description,emotion,momentDate,isGood,modifiedDate\n");
-        for(Moment m:list){
+        for(Moment m:momentList){
             writer.write(m.getId()+","+
             m.getTitle()+","+
             m.getDescription()+","+
             m.getEmotion().name()+","+
             m.getMomentDate()+","+
             m.isGood()+","+
-            m.getModifiedDate()
+            m.getModifiedDate()+ "\n"
            
             );
         }
-        return ("Datos guardados en :"+ file);
+        return ("Datos guardados correctamente en :"+ file);
     }
 
     catch (Exception e) {

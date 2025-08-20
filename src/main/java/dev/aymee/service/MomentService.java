@@ -102,6 +102,9 @@ private String formatMoment(Moment moment) {
 
              return  momentsToStrings(filteredList);
     }
+    public String saveCSV(){
+        return repository.saveCSV();
+    }
 
 }
 

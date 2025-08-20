@@ -6,8 +6,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
-import java.util.Scanner;
-
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,7 +33,7 @@ public class MainControllerTest {
 
      @Test
     public void shouldShowMenuAndExitWhenOptionFiveIsChosen() {
-        String simulatedInput = "5\n";
+        String simulatedInput = "6\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
         mainController=new MainController();
         mainController.start();
@@ -55,7 +53,7 @@ public class MainControllerTest {
                         "1\n" + 
                         "01/05/2024\n" + 
                         "1\n" +
-                        "5\n";
+                        "6\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         mainController = new MainController();

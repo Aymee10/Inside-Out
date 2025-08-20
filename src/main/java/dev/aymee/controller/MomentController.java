@@ -77,6 +77,9 @@ public class MomentController {
         }
                  
        }
+       public String saveCSV(){
+        return momentService.saveCSV();
+       }
     }
 
  

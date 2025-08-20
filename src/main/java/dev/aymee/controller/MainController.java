@@ -72,6 +72,11 @@ public class MainController {
                     break;
                 }
                 case 5: {
+                    String result = momentController.saveCSV();
+                    messageView.messageShow(result);
+                    break;
+                }
+                 case 6: {
                     messageView.messageShow("Hasta la próxima!!!");
                     clicExit = true;
                     break;
