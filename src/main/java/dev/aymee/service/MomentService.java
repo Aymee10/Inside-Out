@@ -34,7 +34,7 @@ public class MomentService {
       
         moment.setModifiedDate(LocalDate.now());
 
-        repository.addMoment(moment);
+        repository.add(moment);
     }
 private String formatMoment(Moment moment) {
         String emotionFormatted =
@@ -63,7 +63,7 @@ private String formatMoment(Moment moment) {
     }
     public String deleteMoment(int opcion){
        
-    boolean deleted = repository.deleteMoment(opcion);
+    boolean deleted = repository.delete(opcion);
     if (deleted) {
         return "Momento vivido eliminado correctamente";
     } else {
