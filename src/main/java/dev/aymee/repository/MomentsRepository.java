@@ -1,4 +1,6 @@
 package dev.aymee.repository;
+import java.io.File;
+import java.io.FileWriter;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,8 +27,33 @@ public class MomentsRepository implements Repository<Moment> {
     
 @Override
 public void saveCSV(List<Moment> list) {
-    // TODO Auto-generated method stub
+    String folder="data";
+    String file=folder + "/moments.csv";
+
+    File directory=new File(folder);
+        if(!directory.exists()){
+            directory.mkdirs();
+        }
     
+    try(FileWriter writer=new FileWriter(file)){
+        writer.write("id,title,description,emotion,momentDate,isGood,modifiedDate\n");
+        for(Moment m:list){
+            writer.write(m.getId()+","+
+            m.getTitle()+","+
+            m.getDescription()+","+
+            m.getEmotion().name()+","+
+            m.getMomentDate()+","+
+            m.isGood()+","+
+            m.getModifiedDate()
+           
+            );
+        }
+        System.out.println("Datos guardados en :"+ file);
+    }
+
+    catch (Exception e) {
+        e.printStackTrace();
+    }
 }
 
 
