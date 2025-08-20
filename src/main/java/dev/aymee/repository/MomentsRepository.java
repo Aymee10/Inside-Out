@@ -26,7 +26,7 @@ public class MomentsRepository implements Repository<Moment> {
     }
     
 @Override
-public void saveCSV(List<Moment> list) {
+public String saveCSV(List<Moment> list) {
     String folder="data";
     String file=folder + "/moments.csv";
 
@@ -48,11 +48,11 @@ public void saveCSV(List<Moment> list) {
            
             );
         }
-        System.out.println("Datos guardados en :"+ file);
+        return ("Datos guardados en :"+ file);
     }
 
     catch (Exception e) {
-        e.printStackTrace();
+       return( "Error al guardar: "+ e.getMessage());
     }
 }
 
