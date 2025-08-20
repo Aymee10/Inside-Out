@@ -16,7 +16,7 @@ import dev.aymee.view.FilterByCategoryView;
 import dev.aymee.view.FilterByEmotionView;
 import dev.aymee.view.FilterByDateView;
 import dev.aymee.view.FilterMomentsListView;
-
+import dev.aymee.view.FilterByCategoryView;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.is;
@@ -31,6 +31,7 @@ public class MomentControllerTest {
    private FilterByDateView filterByDateView;
    private FilterByEmotionView filterByEmotionView;
    private FilterByCategoryView filterByCategoryView;
+
    private MomentController controller= new MomentController(addMomentView, momentService,delete,filter,filterByEmotionView,filterByDateView, filterByCategoryView);
     
   @BeforeEach
@@ -41,7 +42,7 @@ public class MomentControllerTest {
         filter=mock(FilterMomentsListView.class);
      
 
-        controller = new MomentController(addMomentView, momentService,delete,filter, filterByEmotionView,filterByDateView);
+        controller = new MomentController(addMomentView, momentService,delete,filter, filterByEmotionView,filterByDateView,filterByCategoryView);
     }
      @Test
     void addMoment_SuccessMessage() {
@@ -90,7 +91,7 @@ void deleteMomentTest(){
 void filterMoments_ByEmotion() {
     filterByEmotionView = mock(FilterByEmotionView.class);
     filterByDateView = mock(FilterByDateView.class);
-    controller = new MomentController(addMomentView, momentService, delete, filter, filterByEmotionView, filterByDateView);
+    controller = new MomentController(addMomentView, momentService, delete, filter, filterByEmotionView, filterByDateView,filterByCategoryView);
 
     when(filter.filterMoments()).thenReturn(1); 
     when(filterByEmotionView.filterEmotion()).thenReturn(Emotion.ALEGRIA);
@@ -107,9 +108,10 @@ void filterMoments_ByEmotion() {
 void filterMoments_InvalidOption() {
     filterByEmotionView = mock(FilterByEmotionView.class);
     filterByDateView = mock(FilterByDateView.class);
-    controller = new MomentController(addMomentView, momentService, delete, filter, filterByEmotionView, filterByDateView);
+    filterByCategoryView=mock(FilterByCategoryView.class);
+    controller = new MomentController(addMomentView, momentService, delete, filter, filterByEmotionView, filterByDateView,filterByCategoryView);
 
-    when(filter.filterMoments()).thenReturn(3); 
+    when(filter.filterMoments()).thenReturn(5); 
 
     var result = controller.filterMoments();
 

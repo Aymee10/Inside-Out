@@ -13,7 +13,7 @@ public class AddMomentDTOTest {
     @Test
     public void AddMomentDto(){
         LocalDate date=LocalDate.of(2021,2 ,2 );
-        AddMomentDTO dto=new AddMomentDTO("Momento Prueba1", "Descripcion prueba 1", Emotion.ANSIEDAD, date);
+        AddMomentDTO dto=new AddMomentDTO("Momento Prueba1", "Descripcion prueba 1", Emotion.ANSIEDAD, date,true);
 
         assertThat("Momento Prueba1", equalTo(dto.getTitle()));
         assertThat("Descripcion prueba 1", equalTo(dto.getDescription()));

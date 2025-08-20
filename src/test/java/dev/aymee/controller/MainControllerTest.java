@@ -54,6 +54,7 @@ public class MainControllerTest {
                         "Moment description\n" + 
                         "1\n" + 
                         "01/05/2024\n" + 
+                        "1\n" +
                         "5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
