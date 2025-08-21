@@ -5,7 +5,8 @@ import java.util.Scanner;
 import dev.aymee.repository.MomentsRepository;
 import dev.aymee.view.AddMomentView;
 import dev.aymee.view.DeleteMomentView;
-import dev.aymee.view.FilerByEmotionView;
+import dev.aymee.view.FilterByCategoryView;
+import dev.aymee.view.FilterByEmotionView;
 import dev.aymee.view.FilterByDateView;
 import dev.aymee.view.FilterMomentsListView;
 import dev.aymee.view.ListMomentsView;
@@ -25,8 +26,9 @@ public class MainController {
     private final Scanner scanner;
     private final DeleteMomentView deleteMomentView;
     private final FilterMomentsListView filterView;
-    private final FilerByEmotionView filterEmotion;
+    private final FilterByEmotionView filterEmotion;
     private final FilterByDateView filterDate;
+    private final FilterByCategoryView filterCategory;
 
     public MainController() {
         this.scanner = new Scanner(System.in);
@@ -38,8 +40,9 @@ public class MainController {
         this.deleteMomentView=new DeleteMomentView(scanner);
         this.filterView=new FilterMomentsListView(scanner);
         this.filterDate=new FilterByDateView(scanner);
-        this.filterEmotion=new FilerByEmotionView(scanner);
-         this.momentController = new MomentController(addMomentView, momentService,deleteMomentView,filterView, filterEmotion, filterDate);
+        this.filterEmotion=new FilterByEmotionView(scanner);
+        this.filterCategory=new FilterByCategoryView(scanner);
+         this.momentController = new MomentController(addMomentView, momentService,deleteMomentView,filterView, filterEmotion, filterDate,filterCategory);
 
     }
 
@@ -69,6 +72,11 @@ public class MainController {
                     break;
                 }
                 case 5: {
+                    String result = momentController.saveCSV();
+                    messageView.messageShow(result);
+                    break;
+                }
+                 case 6: {
                     messageView.messageShow("Hasta la próxima!!!");
                     clicExit = true;
                     break;

@@ -8,12 +8,14 @@ public class AddMomentDTO {
     private String description;
     private Emotion emotion;
     private LocalDate momentDate;
+    private boolean isGood;
     
-    public AddMomentDTO(String title, String description, Emotion emotion, LocalDate momentDate) {
+    public AddMomentDTO(String title, String description, Emotion emotion, LocalDate momentDate, boolean isGood) {
         this.title = title;
         this.description = description;
         this.emotion = emotion;
         this.momentDate = momentDate;
+        this.isGood=isGood;
     }
 
     public String getTitle() {
@@ -31,6 +33,11 @@ public class AddMomentDTO {
     public LocalDate getMomentDate() {
         return momentDate;
     }
+
+    public boolean getIsGood() {
+        return isGood;
+    }
+    
 
     
 }

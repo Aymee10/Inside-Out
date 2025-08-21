@@ -15,8 +15,9 @@ public class MomentTest {
     String description = "Prueba";
     Emotion emotion = Emotion.ALEGRIA;
     LocalDate momentDate = LocalDate.of(2025, 5, 15);
+    boolean isGood=true;
 
-    Moment moment = new Moment(id, title, description, emotion, momentDate);
+    Moment moment = new Moment(id, title, description, emotion, momentDate,isGood);
 
     assertEquals(id, moment.getId());
     assertEquals(title, moment.getTitle());
@@ -31,7 +32,7 @@ public class MomentTest {
 
     @Test
    public void MomentSetterTest(){
-    Moment moment = new Moment(2, "Momento2", "Prueba de momento 2", Emotion.ANSIEDAD, LocalDate.of(2024, 11, 11));
+    Moment moment = new Moment(2, "Momento2", "Prueba de momento 2", Emotion.ANSIEDAD, LocalDate.of(2024, 11, 11),true);
     moment.setTitle("Título nuevo");
     moment.setDescription("Descripción 2 nueva");
     moment.setEmotion(Emotion.NOSTALGIA);

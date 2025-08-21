@@ -4,10 +4,10 @@ import java.util.Scanner;
 
 import dev.aymee.model.Emotion;
 
-public class FilerByEmotionView {
+public class FilterByEmotionView {
 Scanner scanner;
 
-    public FilerByEmotionView(Scanner scanner) {
+    public FilterByEmotionView(Scanner scanner) {
     this.scanner = scanner;
 }
 

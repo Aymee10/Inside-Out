@@ -66,4 +66,29 @@ while (date == null) {
         }
         return date;
   }
+public boolean askIfIsGood(){
+   System.out.println("Clasifique el momento:");
+   System.out.println("1-Bueno");
+   System.out.println("2-Malo");
+   System.out.println("");
+   int option=-1;
+   boolean result=false;
+   while (option<1||option>2) {
+     try{
+     option=Integer.parseInt(scanner.nextLine());;
+     switch (option) {
+      case 1: result=true;
+       break;
+      case 2: result=false;
+       break;
+      default:System.out.println("Solo puede insertar números 1 o 2");
+        break;
+     }
+   }
+   catch (Exception e){
+       System.out.println("Solo puede insertar números 1 o 2");
+   }
+  }
+  return result;
+}
 }
