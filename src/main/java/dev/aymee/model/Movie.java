@@ -5,9 +5,9 @@ public class Movie {
     private String idImdb;
     private String title;
     private List<String> genres;
-    private String emotion;
+    private Emotion emotion;
     private int releaseYear;
-    public Movie(String idImdb, String title, List<String> genres, String emotion, int releaseYear) {
+    public Movie(String idImdb, String title, List<String> genres, Emotion emotion, int releaseYear) {
         this.idImdb = idImdb;
         this.title = title;
         this.genres = genres;
@@ -24,7 +24,7 @@ public class Movie {
         return genres;
     }
     public String getEmotion() {
-        return emotion;
+        return emotion.name();
     }
     public int getReleaseYear() {
         return releaseYear;
@@ -38,7 +38,7 @@ public class Movie {
     public void setGenres(List<String> genres) {
         this.genres = genres;
     }
-    public void setEmotion(String emotion) {
+    public void setEmotion(Emotion emotion) {
         this.emotion = emotion;
     }
     public void setReleaseYear(int releaseYear) {
