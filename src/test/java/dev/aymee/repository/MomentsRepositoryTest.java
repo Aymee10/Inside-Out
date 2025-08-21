@@ -73,4 +73,12 @@ public class MomentsRepositoryTest {
 
     }
 
+    @Test
+    void shouldSavetoCSV(){
+         Moment moment = new Moment(1, "Prueba Titulo1", "Prueba Descripción1", Emotion.ALEGRIA, LocalDate.of(2020, 1, 1),true);
+        repository.add(moment);
+        String result=repository.saveCSV();
+        assertThat(result,equalTo("Datos guardados correctamente en :data/moments.csv"));
+    }
+
 }
