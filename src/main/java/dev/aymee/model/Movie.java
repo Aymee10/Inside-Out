@@ -1,5 +1,6 @@
 package dev.aymee.model;
 
+import java.time.LocalDate;
 import java.util.List;
 public class Movie {
     private String idImdb;
@@ -7,12 +8,14 @@ public class Movie {
     private List<String> genres;
     private Emotion emotion;
     private int releaseYear;
-    public Movie(String idImdb, String title, List<String> genres, Emotion emotion, int releaseYear) {
+    private LocalDate creationDate;
+    public Movie(String idImdb, String title, List<String> genres, Emotion emotion, int releaseYear, LocalDate creationDate) {
         this.idImdb = idImdb;
         this.title = title;
         this.genres = genres;
         this.emotion = emotion;
         this.releaseYear = releaseYear;
+        this.creationDate=creationDate;
     }
     public String getIdImdb() {
         return idImdb;
@@ -29,6 +32,7 @@ public class Movie {
     public int getReleaseYear() {
         return releaseYear;
     }
+    
     public void setIdImdb(String idImdb) {
         this.idImdb = idImdb;
     }
@@ -43,6 +47,12 @@ public class Movie {
     }
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
+    }
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
     
