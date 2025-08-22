@@ -50,7 +50,8 @@ mvn test
 
 📊 Diagramas realizados
 
-<img width="448" height="168" alt="image" src="https://github.com/user-attachments/assets/e457135a-bd2b-4bfe-8270-706f2af7f94e" />
+<img width="3390" height="1272" alt="classDiagram" src="https://github.com/user-attachments/assets/fbf896ca-364e-4497-b4c5-c8af949dc5fc" />
+
 
 
 👩‍💻 Autores
