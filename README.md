@@ -29,29 +29,29 @@ bash
 Copiar
 Editar
 mvn clean install
-Verifica que los binarios se generan correctamente.
+
 
 🚀 Ejecución del programa
 Compila y ejecuta el proyecto desde la consola:
 
 bash
-Copiar
-Editar
 javac -d bin src/dev/aymee/**/*.java
 java -cp bin dev.aymee.Main
+
 🧪 Ejecución de los tests
 Este proyecto incluye pruebas automatizadas con JUnit y Hamcrest.
 Ejecuta los tests con:
 
 bash
-Copiar
-Editar
 mvn test
+
 📊 Cobertura de tests:
 
 <img width="340" height="709" alt="test coverage" src="https://github.com/user-attachments/assets/fae1dd1e-cbd5-4000-ac8e-6399eef414a4" />
+
 📊 Diagramas realizados
-👉 (Aquí agregar diagramas de clases, casos de uso o arquitectura del proyecto)
+
+
 
 👩‍💻 Autores
 Aymee  – Desarrollo y documentación
