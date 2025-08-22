@@ -26,8 +26,7 @@ Para ejecutar este proyecto necesitas instalar:
 Compila el proyecto:
 
 bash
-Copiar
-Editar
+
 mvn clean install
 
 
