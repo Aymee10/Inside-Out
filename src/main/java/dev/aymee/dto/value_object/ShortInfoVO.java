@@ -1,4 +1,4 @@
-package dev.aymee.dto;
+package dev.aymee.dto.value_object;
 
 import java.util.Arrays;
 

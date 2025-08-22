@@ -16,7 +16,6 @@ import dev.aymee.view.FilterByCategoryView;
 import dev.aymee.view.FilterByEmotionView;
 import dev.aymee.view.FilterByDateView;
 import dev.aymee.view.FilterMomentsListView;
-import dev.aymee.view.FilterByCategoryView;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.is;
