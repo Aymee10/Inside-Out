@@ -50,6 +50,7 @@ mvn test
 
 📊 Diagramas realizados
 
+<img width="448" height="168" alt="image" src="https://github.com/user-attachments/assets/e457135a-bd2b-4bfe-8270-706f2af7f94e" />
 
 
 👩‍💻 Autores
