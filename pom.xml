@@ -64,6 +64,31 @@
   </dependencies>
   <build>
     <plugins>
+    <plugin>
+    <groupId>de.elnarion.maven</groupId>
+    <artifactId>plantuml-generator-maven-plugin</artifactId>
+    <version>3.0.1</version>
+
+    <!-- CONFIGURACIÓN GLOBAL del plugin -->
+    <configuration>
+        <outputDirectory>${project.build.directory}/uml</outputDirectory>
+        <outputFilename>classDiagram.puml</outputFilename>
+        <scanPackages>dev.aymee</scanPackages>
+        <hideAttributes>false</hideAttributes>
+        <hideMethods>true</hideMethods>
+        <hideConstructors>true</hideConstructors>
+    </configuration>
+
+    <!-- <executions>
+        <execution>
+            <id>uml-class-diagram</id>
+            <phase>process-classes</phase>
+            <goals>
+                <goal>generate</goal>
+            </goals>
+        </execution>
+    </executions> -->
+</plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>

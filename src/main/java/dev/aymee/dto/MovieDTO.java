@@ -1,6 +1,8 @@
 package dev.aymee.dto;
 import com.google.gson.annotations.SerializedName;
 
+import dev.aymee.dto.value_object.ShortInfoVO;
+
 
 public class MovieDTO {
 
