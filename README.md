@@ -49,10 +49,11 @@ mvn test
 <img width="340" height="709" alt="test coverage" src="https://github.com/user-attachments/assets/fae1dd1e-cbd5-4000-ac8e-6399eef414a4" />
 
 📊 Diagramas realizados
+<br>
 Diagrama de clases simplificado
 
 <img width="3840" height="980" alt="class diagram" src="https://github.com/user-attachments/assets/2e0edfbb-f73e-4272-bf74-f0b0d4cedf16" />
-
+<br>
 Diagrama de clases con paquetes
 <img width="3390" height="1272" alt="classDiagram" src="https://github.com/user-attachments/assets/fbf896ca-364e-4497-b4c5-c8af949dc5fc" />
 
