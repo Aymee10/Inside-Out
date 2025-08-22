@@ -8,11 +8,12 @@ public class Moment {
    private String title;
    private String description;
    private Emotion emotion;
+   private boolean isGood;
    private LocalDate momentDate;
    private LocalDate createdDate;
    private LocalDate modifiedDate;
 
-    public Moment(int id, String title, String description, Emotion emotion, LocalDate momentDate) {
+    public Moment(int id, String title, String description, Emotion emotion, LocalDate momentDate, boolean isGood) {
     this.id = id;
     this.title = title;
     this.description = description;
@@ -20,6 +21,7 @@ public class Moment {
     this.momentDate = momentDate;
     this.createdDate = LocalDate.now();
     this.modifiedDate = LocalDate.now();
+    this.isGood=isGood;
    }
 
     public int getId() {
@@ -74,6 +76,18 @@ public class Moment {
         this.modifiedDate = modifiedDate;
     }
 
+     public boolean isGood() {
+         return isGood;
+     }
+
+     public void setGood(boolean isGood) {
+         this.isGood = isGood;
+     }
+
+     public void setCreatedDate(LocalDate createdDate) {
+         this.createdDate = createdDate;
+     }
+ 
 
    
 }

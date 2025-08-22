@@ -4,14 +4,13 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.stream.Collectors;
 import java.util.List;
-
 import dev.aymee.dto.AddMomentDTO;
 import dev.aymee.model.Emotion;
 import dev.aymee.model.Moment;
-import dev.aymee.repository.MomentsRepository;
+import dev.aymee.repository.*;
 
 public class MomentService {
-    private MomentsRepository repository;
+    private Repository<Moment> repository;
     private int  id;
      private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -28,23 +27,32 @@ public class MomentService {
             dto.getTitle(),
             dto.getDescription(),
             dto.getEmotion(),
-            dto.getMomentDate()
+            dto.getMomentDate(),
+            dto.getIsGood()
         );
       
         moment.setModifiedDate(LocalDate.now());
 
-        repository.addMoment(moment);
+        repository.add(moment);
     }
 private String formatMoment(Moment moment) {
         String emotionFormatted =
                 moment.getEmotion().name().charAt(0) +
                 moment.getEmotion().name().substring(1).toLowerCase();
+        String category;
+        if(moment.isGood()){
+            category="Bueno";
+        }    else{
+            category="Malo";
+        }    
 
         return moment.getId() + "-" +
                 "Ocurrió el: " + moment.getMomentDate().format(formatter) +
                 ". Título: " + moment.getTitle() +
                 ". Descripción: " + moment.getDescription() +
-                ". Emoción: " + emotionFormatted;
+                ". Emoción: " + emotionFormatted +
+                ". Categoría: "+ category;
+
     }
     public List<String> listMoments() {
         return repository.findAll()
@@ -54,7 +62,7 @@ private String formatMoment(Moment moment) {
     }
     public String deleteMoment(int opcion){
        
-    boolean deleted = repository.deleteMoment(opcion);
+    boolean deleted = repository.delete(opcion);
     if (deleted) {
         return "Momento vivido eliminado correctamente";
     } else {
@@ -62,18 +70,40 @@ private String formatMoment(Moment moment) {
     }
     }
 
-    public List<String> filterByEmotion(Emotion emotion){
-       return repository.filterByEmotion(emotion)
-                .stream()
+    public List<String> momentsToStrings(List<Moment> listMoments){
+        return  listMoments.stream()
                 .map(this::formatMoment) 
                 .collect(Collectors.toList());
+    }
+
+    public List<String> filterByEmotion(Emotion emotion) {
+        List<Moment> momentList=repository.findAll();
+        List<Moment> filteredList= momentList.stream()
+            .filter(m -> m.getEmotion() == emotion)
+            .toList(); 
+
+             return  momentsToStrings(filteredList);
 
     }
+
      public List<String> filterByDate(LocalDate date){
-         return repository.filterByDate(date)
-                .stream()
-                .map(this::formatMoment) 
-                .collect(Collectors.toList());
+         List<Moment> momentList=repository.findAll();
+         List<Moment> filteredList= momentList.stream()
+           .filter(m -> m.getMomentDate().equals(date))
+            .toList(); 
+
+             return  momentsToStrings(filteredList);
+    }
+    public List<String> filterByCategory(boolean category){
+         List<Moment> momentList=repository.findAll();
+         List<Moment> filteredList= momentList.stream()
+            .filter(m -> m.isGood()==category)
+            .toList(); 
+
+             return  momentsToStrings(filteredList);
+    }
+    public String saveCSV(){
+        return repository.saveCSV();
     }
 
 }
