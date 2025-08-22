@@ -55,4 +55,4 @@ mvn test
 
 
 👩‍💻 Autores
-Aymee  – Desarrollo y documentación
+Aymee y Marisol  – Desarrollo y documentación
