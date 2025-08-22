@@ -1,67 +1,57 @@
+# 📘 Project Inside Out - *Mi Diario*
 
-[![Java](https://img.shields.io/badge/Java-21-blue?logo=java)](https://www.oracle.com/java/technologies/javase/21-relnotes.html)
-[![JUnit](https://img.shields.io/badge/JUnit-5.12-green?logo=junit5)](https://junit.org/junit5/)
-[![Hamcrest](https://img.shields.io/badge/Hamcrest-3.0-orange)](http://hamcrest.org/JavaHamcrest/)
-[![Maven](https://img.shields.io/badge/Maven-21-red?logo=apachemaven)](https://maven.apache.org/)
+## 📖 Descripción  
+**Mi Diario** es una aplicación de consola en **Java** que permite al usuario gestionar momentos vividos, cada uno con una emoción y una fecha asociada.  
+La aplicación ofrece la posibilidad de **añadir, listar, eliminar y filtrar momentos** según emoción, fecha o si se consideran buenos o malos, permitiendo así llevar un registro organizado y sencillo de experiencias personales.  
 
-## Project Inside Out - Mi Diario
-### 📖 Descripción
+---
 
-Mi Diario es una aplicación de consola que permite al usuario gestionar momentos vividos, cada uno con una emoción y una fecha asociada.
-El usuario puede añadir, listar, eliminar y filtrar momentos según su emoción o fecha, manteniendo así un registro organizado de sus experiencias.
+## ✅ Pre-requisitos  
 
-### ✨ Funcionalidades
+Para ejecutar este proyecto necesitas instalar:  
 
-Añadir un momento con:
+- [![Java](https://img.shields.io/badge/Java-21-blue?logo=java)](https://www.oracle.com/java/technologies/javase/21-relnotes.html)  
+- [![Maven](https://img.shields.io/badge/Maven-21-red?logo=apachemaven)](https://maven.apache.org/)  
+- [![JUnit](https://img.shields.io/badge/JUnit-5.12-green?logo=junit5)](https://junit.org/junit5/)  
+- [![Hamcrest](https://img.shields.io/badge/Hamcrest-3.0-orange)](http://hamcrest.org/JavaHamcrest/)  
 
-Identificador único
+---
 
-Título
+## ⚙️ Pasos para la instalación  
 
-Descripción
+1. Clona este repositorio:  
+   ```bash
+   git clone https://github.com/tuusuario/mi-diario.git
+   cd mi-diario
+Compila el proyecto:
 
-Emoción (alegría, tristeza, ira, etc.)
+bash
+Copiar
+Editar
+mvn clean install
+Verifica que los binarios se generan correctamente.
 
-Fecha del momento
-
-Fecha de creación y modificación
-
-Listar todos los momentos registrados
-
-Eliminar un momento por su identificador
-
-Filtrar momentos por emoción, fecha o si es bueno o malo
-
-Distiguir entre momentos buenos y malos
-
-Guardar listado de momentos en CSV
-
-Salir del programa
-
-### 📋 Historias de usuario
-
-Añadir un momento vivido
-
-Visualizar la lista de momentos
-
-Eliminar un momento para evitar duplicados
-
-Distiguir entre momentos buenos y malos
-
-Filtrar por emoción o fecha
-
-Filtrar por momentos buenos y malos
-
-Salir de la aplicación
-
-### 🚀 Ejecución
+🚀 Ejecución del programa
 Compila y ejecuta el proyecto desde la consola:
 
+bash
+Copiar
+Editar
 javac -d bin src/dev/aymee/**/*.java
 java -cp bin dev.aymee.Main
+🧪 Ejecución de los tests
+Este proyecto incluye pruebas automatizadas con JUnit y Hamcrest.
+Ejecuta los tests con:
 
-### Test coverage
-
+bash
+Copiar
+Editar
+mvn test
+📊 Cobertura de tests:
 
 <img width="340" height="709" alt="test coverage" src="https://github.com/user-attachments/assets/fae1dd1e-cbd5-4000-ac8e-6399eef414a4" />
+📊 Diagramas realizados
+👉 (Aquí agregar diagramas de clases, casos de uso o arquitectura del proyecto)
 
+👩‍💻 Autores
+Aymee  – Desarrollo y documentación
