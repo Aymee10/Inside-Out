@@ -30,7 +30,11 @@ Listar todos los momentos registrados
 
 Eliminar un momento por su identificador
 
-Filtrar momentos por emoción o por fecha
+Filtrar momentos por emoción, fecha o si es bueno o malo
+
+Distiguir entre momentos buenos y malos
+
+Guardar listado de momentos en CSV
 
 Salir del programa
 
@@ -42,7 +46,11 @@ Visualizar la lista de momentos
 
 Eliminar un momento para evitar duplicados
 
+Distiguir entre momentos buenos y malos
+
 Filtrar por emoción o fecha
+
+Filtrar por momentos buenos y malos
 
 Salir de la aplicación
 
@@ -54,5 +62,6 @@ java -cp bin dev.aymee.Main
 
 ### Test coverage
 
-<img width="308" height="480" alt="test coverage inside-out fase 1" src="https://github.com/user-attachments/assets/2978c600-e38f-4db8-8be6-4a4fa31578c0" />
+
+<img width="340" height="709" alt="test coverage" src="https://github.com/user-attachments/assets/fae1dd1e-cbd5-4000-ac8e-6399eef414a4" />
 
